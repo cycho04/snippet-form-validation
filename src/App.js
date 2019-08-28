@@ -12,8 +12,8 @@ function App() {
         <p>
           Form Validation
         </p>
+        <Form />
       </header>
-      <Form />
     </div>
   );
 }
