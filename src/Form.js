@@ -1,30 +1,62 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+    border: 1px solid white;
+`
+
+const StyledContainer = styled.div`
+    text-align: left;
+`
+
+const StyledLabel = styled.label`
+`
+
+const StyledInput = styled.input`
+    display: block;
+`
+
+const StyledButton = styled.button`
+    background: white;
+    width: 100%;
+`
 
 class Form extends React.Component{
-    state = {}
+    state = {
+        name: '',
+        email: '',
+        password: '',
+        phone: ''
+    }
+
+    handleInput = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        this.setState({[name]: value});
+    }
 
     render(){
         return(
-            <form>
-                <h2>Form</h2>
-                <div>
-                    <label>Name</label>
-                    <input type='text'></input>
-                </div>
-                <div>
-                    <label>Email</label>
-                    <input type='email'></input>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type='password'></input>
-                </div>
-                <div>
-                    <label>Phone</label>
-                    <input type='tel'></input>
-                </div>
-                <button type='submit'>Submit</button>
-            </form>
+            <StyledForm>
+                <StyledContainer>
+                    <StyledLabel>Name</StyledLabel>
+                    <StyledInput type='text' name='name' value={this.state.name} onChange={this.handleInput} placeholder='Full Name' />
+                </StyledContainer>
+                <StyledContainer>
+                    <StyledLabel>Email</StyledLabel>
+                    <StyledInput type='email' name='email' value={this.state.email} onChange={this.handleInput} placeholder='Email' />
+                </StyledContainer>
+                <StyledContainer>
+                    <StyledLabel>Password</StyledLabel>
+                    <StyledInput type='password' name='password' value={this.state.password} onChange={this.handleInput} placeholder='Password' />
+                </StyledContainer>
+                <StyledContainer>
+                    <StyledLabel>Phone</StyledLabel>
+                    <StyledInput type='tel' name='phone' value={this.state.phone} onChange={this.handleInput} placeholder='Phone' />
+                </StyledContainer>
+                <StyledButton type='submit'>Submit</StyledButton>
+            </StyledForm>
         )
     }
 }
