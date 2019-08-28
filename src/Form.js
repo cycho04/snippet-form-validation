@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledForm = styled.form`
     border: 1px solid white;
+    padding: 2rem;
 `
 
 const StyledContainer = styled.div`
@@ -10,6 +11,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledLabel = styled.label`
+
 `
 
 const StyledInput = styled.input`
