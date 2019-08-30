@@ -1,32 +1,35 @@
-import React, {useState} from 'react';
+import React from 'react';
+import styled from 'styled-components';
 
-const Form = (props) => {
+import useForm from './useForm';
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+const Form = () => {
+    const {inputs, handleSubmit, handleChange} = useForm(submitted);
+
+    function submitted(){
+        alert('submitted!');
     }
-
     return(
         <form onSubmit={handleSubmit}>
             <div>
                 <label>First Name: </label>
-                <input type='text' name='firstName' required/>
+                <input value={inputs.firstName} onChange={handleChange} type='text' name='firstName' required/>
                 <label>Last Name: </label>
-                <input type='text' name='lastName' required/>
+                <input value={inputs.lastName} onChange={handleChange} type='text' name='lastName' required/>
             </div>
             <div>
                 <label>Email</label>
-                <input type='email' name='email' required/>
+                <input value={inputs.email} onChange={handleChange} type='email' name='email' required/>
             </div>
             <div>
                 <label>Password</label>
-                <input type='password' name='password' required/>
+                <input value={inputs.password} onChange={handleChange} type='password' name='password' required/>
             </div>
             <div>
                 <label>Confirm Password</label>
-                <input type='password' name='passwordConfirm' required/>
+                <input value={inputs.passwordConfirm} onChange={handleChange} type='password' name='passwordConfirm' required/>
             </div>
-            <input type='submit' value='Submit'/>
+            <button type='submit'>Submit</button>
         </form>
     )
 }
